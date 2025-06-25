@@ -1,0 +1,40 @@
+{% block footer %}
+<footer class="bg-green-950 text-white py-16 mt-24 font-sans">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10 border-b border-green-800 pb-12">
+
+   
+    <div>
+      <h2 class="text-3xl font-extrabold text-emerald-400 tracking-wide mb-4">Django Consultoría</h2>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Transformamos ideas en soluciones reales. Te guiamos paso a paso en el desarrollo con Django,
+        desde tus primeros proyectos hasta la puesta en producción.
+      </p>
+    </div>
+
+    
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4 tracking-wide">Explora</h3>
+      <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
+        <li class="hover:text-emerald-300 transition-colors">Inicio</li>
+        <li class="hover:text-emerald-300 transition-colors">Registrarse</li>
+       
+        <li class="hover:text-emerald-300 transition-colors">Portafolio</li>
+        <li class="hover:text-emerald-300 transition-colors">Blog</li>
+        <li class="hover:text-emerald-300 transition-colors">Login</li>
+      </ul>
+    </div>
+
+    <!-- Extra -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4 tracking-wide">¿Tienes dudas?</h3>
+      <p class="text-sm text-gray-300 leading-relaxed">
+        Consulta nuestra sección de preguntas frecuentes o contáctanos para mentorías y soporte técnico especializado.
+      </p>
+    </div>
+  </div>
+
+  <div class="text-center text-xs text-gray-500 mt-10 tracking-wide">
+    &copy; {{ now|date:"Y" }} Django Consultoría — Todos los derechos reservados.
+  </div>
+</footer>
+{% endblock footer %}

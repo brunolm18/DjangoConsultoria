@@ -1,0 +1,23 @@
+{% extends "Projects/base.html" %}
+
+{% block content %}
+<div class="max-w-xl mx-auto mt-20 bg-white p-8 rounded shadow text-center">
+  <h2 class="text-2xl font-bold text-red-600 mb-6">Eliminar Asesoría</h2>
+
+  <p class="text-gray-700 text-lg mb-4">
+    ¿Estás seguro de que deseas eliminar la asesoría <strong class="text-red-500">{{ object.tema }}</strong>?
+  </p>
+
+  <form method="post" class="flex justify-center space-x-4 mt-6">
+    {% csrf_token %}
+    <button type="submit"
+            class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-5 rounded transition duration-200">
+      Sí, eliminar
+    </button>
+    <a href="{% url 'projects:asesorias_list' %}"
+       class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-5 rounded transition duration-200">
+      Cancelar
+    </a> 
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% block contacto %}
+  
+
+<div class="text-center mt-16">
+  <h2 class="text-4xl font-bold text-indigo-800 mb-4">Contáctanos</h2>
+  <p class="text-gray-600 text-lg">¿Tienes alguna duda o propuesta? ¡Envíanos un mensaje!</p>
+</div>
+
+
+
+<form method="POST" class="bg-white px-6 py-8 flex flex-col gap-6 rounded-2xl shadow-2xl max-w-xl mx-auto mt-12 border border-indigo-100">
+  {% csrf_token %}
+
+  <div>
+    <label for="nombre" class="block text-indigo-800 text-lg font-semibold mb-1">Nombre</label>
+    <input
+      id="nombre"
+      type="text"
+      name="nombre"
+      placeholder="Tu nombre"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="correo" class="block text-indigo-800 text-lg font-semibold mb-1">Correo</label>
+    <input
+      id="correo"
+      type="email"
+      name="correo"
+      placeholder="tucorreo@ejemplo.com"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="asunto" class="block text-indigo-800 text-lg font-semibold mb-1">Asunto</label>
+    <input
+      id="asunto"
+      type="text"
+      name="asunto"
+      placeholder="Motivo del mensaje"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      required
+    >
+  </div>
+
+  <div>
+    <label for="mensaje" class="block text-indigo-800 text-lg font-semibold mb-1">Mensaje</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="5"
+      placeholder="Escribe tu mensaje aquí..."
+      class="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      required
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-6 bg-indigo-600 text-white text-lg font-semibold py-3 rounded-xl hover:bg-indigo-700 transition duration-300"
+  >
+    Enviar
+  </button>
+</form>
+{% endblock contacto %}

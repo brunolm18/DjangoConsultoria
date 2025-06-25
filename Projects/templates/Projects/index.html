@@ -1,0 +1,192 @@
+{% extends "Projects/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero -->
+
+<!-- ¿Por qué elegir Django Consultoría? -->
+<div class="mt-16 px-6 py-12 flex flex-col items-center text-center bg-gray-100 text-gray-900 rounded-2xl shadow-inner">
+  <h2 class="font-extrabold text-4xl md:text-5xl mb-10">
+    ¿Por qué elegir Django Consultoría?
+  </h2>
+
+  <img 
+    src="{% static 'projects/logo.png' %}" 
+    alt="Logo de Django Consultoría" 
+    class="w-72 h-52 mb-8 rounded-xl shadow-md"
+  />
+
+  <p class="font-medium text-xl md:text-2xl leading-relaxed max-w-4xl">
+    En Django Consultoría, transformamos ideas en soluciones reales. <br>
+    Ayudamos a <span class="underline underline-offset-4 decoration-emerald-600">desarrolladores de todos los niveles</span>
+    a construir proyectos sólidos, escalar su conocimiento técnico y destacar en el mundo académico y profesional. <br>
+    Ya sea que estés empezando o necesites optimizar una aplicación en producción,
+    <span class="italic font-bold text-emerald-800">estamos contigo en cada línea de código</span>.
+  </p>
+</div>
+
+<!-- Beneficios -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 px-10 py-16 bg-gradient-to-r from-sky-100 to-sky-200">
+  <div class="bg-white rounded-xl p-6 shadow-lg">
+    <h3 class="text-emerald-700 text-3xl font-bold mb-2">Soporte Personalizado</h3>
+    <p class="font-semibold">Te acompañamos uno a uno en cada etapa del desarrollo de tu proyecto.</p>
+  </div>
+  <div class="bg-white rounded-xl p-6 shadow-lg">
+    <h3 class="text-emerald-700 text-3xl font-bold mb-2">Optimización Profesional</h3>
+    <p class="font-semibold">Mejoramos el rendimiento, seguridad y escalabilidad de tus apps Django.</p>
+  </div>
+  <div class="bg-white rounded-xl p-6 shadow-lg">
+    <h3 class="text-emerald-700 text-3xl font-bold mb-2">Formación Continua</h3>
+    <p class="font-semibold">Recibe recursos exclusivos, guías y mentorías prácticas para aprender Django en serio.</p>
+  </div>
+</div>
+
+<div class="mt-20 px-6">
+  <!-- Título con degradado -->
+  <h3 class="font-semibold text-center text-5xl bg-gradient-to-r from-indigo-500 to-teal-400 bg-clip-text text-transparent mb-12">
+    Testimonios
+  </h3>
+
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- Testimonio 1 -->
+    <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-emerald-400 transition duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Eduardo García</h2>
+      <p class="text-gray-600 mb-4">
+        Django Consultoría me ayudó a ver Django de otra manera. Recomiendo muchísimo sus servicios. Te enseñan todo desde cero hasta consultas más avanzadas.
+      </p>
+      <div class="flex gap-1">
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+      </div>
+    </div>
+
+
+    <!-- Testimonio 2 (puedes cambiar el nombre o contenido) -->
+    <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-emerald-400 transition duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Ana López</h2>
+      <p class="text-gray-600 mb-4">
+        Gracias a Django Consultoría logré mejorar mi backend y aprendí sobre buenas prácticas en tiempo récord. ¡Excelente mentoría!
+      </p>
+      <div class="flex gap-1">
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" alt="Estrella" width="24" height="24" />
+      </div>
+      
+      
+    </div>
+
+    <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-emerald-400 transition duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Carlos Méndez</h2>
+      <p class="text-gray-600 mb-4">
+        Las mentorías me ayudaron a lanzar mi primera app en producción. Aprendí desde testing hasta deployment en VPS. ¡Muy completo!
+      </p>
+      <div class="flex gap-1">
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+      </div>
+    </div>
+
+    <!-- Testimonio 4 -->
+    <div class="bg-white rounded-2xl p-6 shadow-xl hover:shadow-emerald-400 transition duration-300">
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Lucía Fernández</h2>
+      <p class="text-gray-600 mb-4">
+        Me ayudaron a optimizar una aplicación de la universidad que ahora uso como proyecto destacado en mi CV. ¡Súper útil!
+      </p>
+      <div class="flex gap-1">
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+        <img src="https://img.icons8.com/color/48/filled-star--v1.png" width="24" />
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<div class="mt-20 px-6 text-center">
+  <h2 class="font-bold text-4xl text-indigo-600 mb-10">
+    Empresas que confían en nosotros
+  </h2>
+
+  <div class="flex flex-wrap justify-center items-center gap-8">
+    <img src="{% static 'Projects/google.png' %}" alt="Google" class="w-24 h-24 object-contain" />
+    <img src="{% static 'Projects/codigo-facilito.jpg' %}" alt="Código Facilito" class="w-24 h-24 object-contain rounded-lg shadow-sm" />
+    <img src="{% static 'Projects/github.png' %}" alt="GitHub" class="w-24 h-24 object-contain" />
+    <img src="{% static 'Projects/django-girls.png' %}" alt="Django Girls" class="w-24 h-24 object-contain" />
+  </div>
+</div> 
+
+<div class="mt-20 px-6">
+  <h1 class="text-violet-600 font-semibold text-center text-4xl mb-10">Nuestro Portafolio</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {% for project in projects %}
+      <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition duration-300">
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.name }}" class="w-full h-48 object-cover">
+        {% endif %}
+
+        <div class="p-5">
+          <h2 class="text-green-600 font-bold text-xl mb-2">{{ project.name }}</h2>
+          <p class="text-gray-600 font-medium text-sm mb-2">{{ project.technologies }}</p>
+          <p class="text-gray-800 mb-4">{{ project.description }}</p>
+          <p class="text-right text-sm text-gray-500 font-semibold">{{ project.date }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class=""></div>
+
+
+<!-- Preguntas Frecuentes -->
+<div class="mt-20 px-10 py-16 bg-indigo-50">
+  <h2 class="text-5xl font-bold text-center mb-10 text-indigo-800">Preguntas Frecuentes</h2>
+  <div class="space-y-4 max-w-4xl mx-auto">
+    <details class="bg-white p-4 rounded-lg shadow-md">
+      <summary class="cursor-pointer text-emerald-700 font-semibold text-xl">¿Necesito experiencia previa con Django?</summary>
+      <p class="mt-2 text-gray-700">No es necesario. Te guiamos desde lo más básico hasta niveles intermedios y avanzados.</p>
+    </details>
+    <details class="bg-white p-4 rounded-lg shadow-md">
+      <summary class="cursor-pointer text-emerald-700 font-semibold text-xl">¿Ofrecen ayuda en despliegue?</summary>
+      <p class="mt-2 text-gray-700">Sí, te ayudamos a desplegar en plataformas como Heroku, Railway, Render o servidores VPS.</p>
+    </details>
+    <details class="bg-white p-4 rounded-lg shadow-md">
+      <summary class="cursor-pointer text-emerald-700 font-semibold text-xl">¿Puedo obtener una mentoría 1:1?</summary>
+      <p class="mt-2 text-gray-700">Sí, ofrecemos sesiones privadas para ayudarte con tus dudas o revisar tus proyectos en detalle.</p>
+    </details>
+     <details class="bg-white p-4 rounded-lg shadow-md">
+      <summary class="cursor-pointer text-emerald-700 font-semibold text-xl">
+        ¿Puedo acceder a los contenidos grabados?
+      </summary>
+      <p class="mt-2 text-gray-700">Sí. Todos los talleres y mentorías en vivo quedan grabados y disponibles para los estudiantes registrados.</p>
+    </details>
+     <details class="bg-white p-4 rounded-lg shadow-md">
+      <summary class="cursor-pointer text-emerald-700 font-semibold text-xl">
+        ¿Qué tecnologías complementarias enseñan?
+      </summary>
+      <p class="mt-2 text-gray-700">Además de Django, cubrimos HTML, CSS, JavaScript, Tailwind, bases de datos, Git y despliegue en la nube.</p>
+    </details>
+  </div>
+</div>
+
+
+{% include "Projects/contact.html" %}
+
+{% endblock content %}

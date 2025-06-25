@@ -1,0 +1,49 @@
+{% extends "Projects/base.html" %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto mt-10 px-4">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-violet-700">Mis Asesorías</h2>
+    <a href="{% url 'projects:asesoria_create' %}"
+       class="bg-violet-600 text-white px-4 py-2 rounded hover:bg-violet-700 transition">
+      + Nueva Asesoría
+    </a>
+  </div>
+
+  {% if object_list %}
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-violet-600 text-white">
+        <tr>
+          <th class="text-left py-3 px-4">Tema</th>
+          <th class="text-left py-3 px-4">Descripción</th>
+          <th class="text-left py-3 px-4">Fecha</th>
+          <th class="text-left py-3 px-4">Creada</th>
+          <th class="text-center py-3 px-4">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for asesoria in object_list %}
+        <tr class="border-b hover:bg-gray-50">
+          <td class="py-3 px-4">{{ asesoria.tema }}</td>
+          <td class="py-3 px-4">{{ asesoria.descripcion }}</td>
+          <td class="py-3 px-4">{{ asesoria.fecha }}</td>
+          <td class="py-3 px-4">{{ asesoria.creada }}</td>
+          <td class="py-3 px-4 text-center space-x-2">
+            <a href="{% url 'projects:asesoria_update' asesoria.pk %}"
+               class="text-blue-600 hover:underline">Editar</a>
+            <a href="{% url 'projects:asesoria_delete' asesoria.pk %}"
+               class="text-red-600 hover:underline">Eliminar</a>
+              
+
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p class="text-gray-500 mt-4">No tienes asesorías registradas.</p>
+  {% endif %}
+</div>
+{% endblock %}

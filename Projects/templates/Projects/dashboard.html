@@ -1,0 +1,35 @@
+{% extends 'Projects/base.html' %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto p-6">
+  <h1 class="text-3xl font-bold mb-6">Bienvenido, {{ request.user.username }}</h1>
+
+  <div class="flex justify-between items-center mb-4">
+    <h2 class="text-xl font-semibold">Tus asesorías</h2>
+    <a href="{% url 'projects:asesoria_create' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+      + Nueva asesoría
+    </a>
+  </div>
+
+  {% if asesorias %}
+    <div class="space-y-4">
+      {% for asesoria in asesorias %}
+        <div class="p-4 bg-white shadow rounded-md flex justify-between items-center">
+          <div>
+            <h3 class="text-lg font-bold">{{ asesoria.tema }}</h3>
+            <p class="text-gray-600">{{ asesoria.descripcion }}</p>
+            <p class="text-sm text-gray-500">Fecha: {{ asesoria.fecha }}</p>
+          </div>
+          <div class="space-x-3">
+             <a href="{% url 'projects:asesoria_detail' asesoria.pk %}" class="text-green-600 hover:underline">Ver</a>
+            <a href="{% url 'projects:asesoria_update' asesoria.pk %}" class="text-blue-600 hover:underline">Editar</a>
+            <a href="{% url 'projects:asesoria_delete' asesoria.pk %}" class="text-red-600 hover:underline">Eliminar</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-gray-500">No tienes asesorías registradas.</p>
+  {% endif %}
+</div>
+{% endblock %}

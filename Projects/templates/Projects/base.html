@@ -1,0 +1,28 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Consultoria</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-white text-gray-900">
+    {% block navbar %}
+       {% include "Projects/components/navbar.html" %}
+    {% endblock navbar %}
+    <br>
+    <br>
+    <br>
+    
+   {% block content %}
+   
+   {% endblock content %}
+
+    {% block footer %}
+        {% include "Projects/components/footer.html" %}    
+    {% endblock footer %}
+
+   
+</body
+</html>

@@ -1,0 +1,76 @@
+{% extends "Projects/base.html" %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Título principal -->
+    <h1 class="text-4xl font-extrabold text-gray-900 text-center py-10">
+        Lee los últimos artículos
+    </h1>
+
+    <!-- Categorías -->
+    {% if categories %}
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+        {% for category in categories %}
+            <span class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow">
+                {{ category.name }}
+            </span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Posts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {% for post in posts %}
+        <div class="bg-white shadow-md hover:shadow-lg transition-shadow duration-300 rounded-xl overflow-hidden border border-gray-200">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+            <div class="p-5">
+                <h2 class="text-2xl font-bold text-gray-800 mb-2">{{ post.title }}</h2>
+                <p class="text-gray-600 mb-4">{{ post.description|truncatewords:20 }}</p>
+
+                <div class="text-sm text-gray-500 mb-2">
+                    <p>Autor: {{ post.author.full_name }}</p>
+                    <p>Publicado: {{ post.created_at|date:"d M Y" }}</p>
+                </div>
+
+                <div>
+                    <p class="font-semibold text-gray-700 text-sm mb-1">Categorías:</p>
+                    <ul class="list-disc list-inside text-gray-600 text-sm">
+                        {% for categoria in post.categoria_set.all %}
+                            <li>{{ categoria.name }}</li>
+                        {% empty %}
+                            <li>Sin categoría</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="mt-4">
+                    <a href="{% url 'blog:blog_detail' post.pk %}" class="inline-block bg-amber-600 hover:bg-amber-700 text-white font-semibold px-4 py-2 rounded transition duration-300">
+                        Leer más
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Paginación -->
+    {% if is_paginated %}
+    <div class="mt-10 flex justify-center space-x-4">
+        {% if page_obj.has_previous %}
+            <a href="?page=1" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Primera</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Anterior</a>
+        {% endif %}
+
+        <span class="px-4 py-2 bg-gray-100 rounded font-semibold text-gray-700">
+            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Siguiente</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Última</a>
+        {% endif %}
+    </div>
+    
+    {% endif %}
+</div>
+{% endblock content %}
