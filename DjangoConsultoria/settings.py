@@ -22,6 +22,7 @@ load_dotenv()
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
+
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host]
 
@@ -85,7 +86,7 @@ WSGI_APPLICATION = 'DjangoConsultoria.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(env=("POSTGRESQL_URL"), conn_max_age=600,ssl_require=True)
+    'default': dj_database_url.config(env="POSTGRESQL_URL", conn_max_age=600,ssl_require=True)
     
 }
 
