@@ -8,7 +8,7 @@ from .models import Author,Post,Categoria
 class PostList(ListView):
     template_name = "blog/blog.html"
     context_object_name = 'posts'
-    paginate_by = 8
+   
     queryset = Post.objects.all()
     
 
