@@ -1,0 +1,53 @@
+name: Django Blog Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: djangoconsultoria
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    env:
+      # Esta variable será usada en settings.py con dj_database_url
+      DATABASE_URL: mysql://root:rootpassword@127.0.0.1:3306/djangoconsultoria
+      DJANGO_SECRET_KEY: your_test_secret_key
+      AWS_ACCESS_KEY_ID: dummy
+      AWS_SECRET_ACCESS_KEY: dummy
+      AWS_STORAGE_BUCKET_NAME: dummy
+      AWS_S3_REGION_NAME: dummy
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install mysqlclient
+
+      - name: Run blog app tests
+        run: python manage.py test blog.tests
