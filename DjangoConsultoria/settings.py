@@ -27,7 +27,7 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 ALLOWED_HOSTS = [host.strip() for host in ALLOWED_HOSTS if host]
 
 
-
+CSRF_TRUSTED_ORIGINS = ['https://web-production-7478.up.railway.app']
 
 # Application definition
 
