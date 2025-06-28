@@ -1,6 +1,6 @@
 
 from django.db import models
-
+from storages.backends.s3boto3 import S3Boto3Storage
 # Create your models here.
 class Author(models.Model):
     full_name = models.CharField(max_length=200,verbose_name="Full Name",null=False)
@@ -24,7 +24,7 @@ class Post(models.Model):
     author = models.ForeignKey(Author,on_delete=models.CASCADE)
     title = models.CharField(max_length=200,verbose_name="Title")
     description = models.TextField(verbose_name="Description")
-    image = models.ImageField(upload_to="posts_images",verbose_name="Image",)
+    image = models.ImageField(upload_to="posts_images",verbose_name="Image",storage=S3Boto3Storage)
     text = models.TextField(verbose_name="Text")
     created_at = models.DateTimeField(auto_now_add=True)
         
