@@ -149,6 +149,8 @@ else:
     
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
+AWS_DEFAULT_ACL = 'public-read'
+
 
 
 # Default primary key field type
