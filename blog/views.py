@@ -11,6 +11,12 @@ class PostList(ListView):
     context_object_name = 'posts'
    
     queryset = Post.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["categories"] = Categoria.objects.all()
+        return context
+
     
 
 class PostDetail(DetailView):
@@ -18,11 +24,7 @@ class PostDetail(DetailView):
     context_object_name = 'post'
     template_name = 'blog/blog_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["categories"] = Categoria.objects.all()
-        return context
-
+ 
 
 
 
