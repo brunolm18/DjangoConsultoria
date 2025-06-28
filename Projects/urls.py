@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from .views import register, user_login,dashboard,AsesoriaListView,AsesoriaCreateView,AsesoriaUpdateView,AsesoriaDeleteView,AsesoriaDetailView
 
-app_name = 'projects'
+app_name = 'Projects'
 
 urlpatterns = [
     path('',views.index_view,name='index'),

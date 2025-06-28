@@ -62,13 +62,20 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            new_user = form.save(commit=False)
-            new_user.set_password(form.cleaned_data['password'])
-            new_user.save()
-            return redirect('projects:login')  
+            try:
+                new_user = form.save(commit=False)
+                new_user.set_password(form.cleaned_data['password'])
+                new_user.save()
+                messages.success(request, "Usuario registrado exitosamente. Inicia sesión.")
+                return redirect('Projects:login')
+            except Exception as e:
+                messages.error(request, f"Ocurrió un error al registrar el usuario: {e}")
+        else:
+            messages.error(request, "Por favor corrige los errores en el formulario.")
     else:
         form = UserRegisterForm()
-    return render(request, 'projects/register.html', {'form': form})
+    return render(request, 'Projects/register.html', {'form': form})
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -76,7 +83,7 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('projects:dashboard')  
+            return redirect('Projects:dashboard')  
     else:
         form = AuthenticationForm()
     return render(request, 'Projects/login.html', {'form': form})  
@@ -86,13 +93,13 @@ def user_login(request):
 @login_required
 def dashboard(request):
     asesorias = Asesoria.objects.filter(user=request.user)
-    return render(request, 'projects/dashboard.html', {'asesorias': asesorias})
+    return render(request, 'Projects/dashboard.html', {'asesorias': asesorias})
 
 
 
 class AsesoriaListView(LoginRequiredMixin, ListView):
     model = Asesoria
-    template_name = 'projects/asesorias_list.html'
+    template_name = 'Projects/asesorias_list.html'
     context_object_name = 'asesorias'
 
     def get_queryset(self):
@@ -101,7 +108,7 @@ class AsesoriaListView(LoginRequiredMixin, ListView):
 
 class AsesoriaDetailView(LoginRequiredMixin, DetailView):
     model = Asesoria
-    template_name = 'projects/asesoria_detail.html'
+    template_name = 'Projects/asesoria_detail.html'
 
     def get_queryset(self):
        
@@ -111,7 +118,7 @@ class AsesoriaDetailView(LoginRequiredMixin, DetailView):
 class AsesoriaCreateView(LoginRequiredMixin, CreateView):
     model = Asesoria
     form_class = AsesoriaForm
-    template_name = 'projects/asesoria_form.html'
+    template_name = 'Projects/asesoria_form.html'
     success_url = reverse_lazy('projects:asesorias_list')
 
     def form_valid(self, form):
@@ -122,8 +129,8 @@ class AsesoriaCreateView(LoginRequiredMixin, CreateView):
 class AsesoriaUpdateView(LoginRequiredMixin, UpdateView):
     model = Asesoria
     form_class = AsesoriaForm
-    template_name = 'projects/asesoria_form.html'
-    success_url = reverse_lazy('projects:asesorias_list')
+    template_name = 'Projects/asesoria_form.html'
+    success_url = reverse_lazy('Projects:asesorias_list')
 
     def get_queryset(self):
         return Asesoria.objects.filter(user=self.request.user)
@@ -131,8 +138,8 @@ class AsesoriaUpdateView(LoginRequiredMixin, UpdateView):
 
 class AsesoriaDeleteView(LoginRequiredMixin, DeleteView):
     model = Asesoria
-    template_name = 'projects/asesoria_confirm_delete.html'
-    success_url = reverse_lazy('projects:asesorias_list')
+    template_name = 'Projects/asesoria_confirm_delete.html'
+    success_url = reverse_lazy('Projects:asesorias_list')
 
     def get_queryset(self):
         return Asesoria.objects.filter(user=self.request.user)

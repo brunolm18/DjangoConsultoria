@@ -6,7 +6,7 @@
 
   <div class="flex justify-between items-center mb-4">
     <h2 class="text-xl font-semibold">Tus asesorías</h2>
-    <a href="{% url 'projects:asesoria_create' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    <a href="{% url 'Projects:asesoria_create' %}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
       + Nueva asesoría
     </a>
   </div>
@@ -21,9 +21,9 @@
             <p class="text-sm text-gray-500">Fecha: {{ asesoria.fecha }}</p>
           </div>
           <div class="space-x-3">
-             <a href="{% url 'projects:asesoria_detail' asesoria.pk %}" class="text-green-600 hover:underline">Ver</a>
-            <a href="{% url 'projects:asesoria_update' asesoria.pk %}" class="text-blue-600 hover:underline">Editar</a>
-            <a href="{% url 'projects:asesoria_delete' asesoria.pk %}" class="text-red-600 hover:underline">Eliminar</a>
+             <a href="{% url 'Projects:asesoria_detail' asesoria.pk %}" class="text-green-600 hover:underline">Ver</a>
+            <a href="{% url 'Projects:asesoria_update' asesoria.pk %}" class="text-blue-600 hover:underline">Editar</a>
+            <a href="{% url 'Projects:asesoria_delete' asesoria.pk %}" class="text-red-600 hover:underline">Eliminar</a>
           </div>
         </div>
       {% endfor %}

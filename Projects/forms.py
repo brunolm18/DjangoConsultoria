@@ -1,15 +1,22 @@
+from typing import Any
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from .models import Asesoria
 
 class UserRegisterForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={
-        'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300'
-    }))
-    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput(attrs={
-        'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300'
-    }))
+    password = forms.CharField(
+        label='Contraseña',
+        widget=forms.PasswordInput(attrs={
+            'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300'
+        })
+    )
+    password2 = forms.CharField(
+        label='Confirmar contraseña',
+        widget=forms.PasswordInput(attrs={
+            'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300'
+        })
+    )
 
     class Meta:
         model = User
@@ -22,6 +29,16 @@ class UserRegisterForm(forms.ModelForm):
                 'class': 'w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300'
             }),
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("password")
+        password2 = cleaned_data.get("password2")
+
+        if password and password2 and password != password2:
+            self.add_error('password2', "Las contraseñas no coinciden")
+        return cleaned_data
+
 
 class CustomAuthForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):

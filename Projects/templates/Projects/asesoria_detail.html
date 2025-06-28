@@ -13,9 +13,9 @@
   
 
   <div class="mt-6 flex justify-between">
-    <a href="{% url 'projects:asesoria_update' object.pk %}" class="text-blue-600 hover:underline">Editar</a>
-    <a href="{% url 'projects:asesoria_delete' object.pk %}" class="text-red-600 hover:underline">Eliminar</a>
-    <a href="{% url 'projects:asesorias_list' %}" class="text-gray-600 hover:underline">Volver</a>
+    <a href="{% url 'Projects:asesoria_update' object.pk %}" class="text-blue-600 hover:underline">Editar</a>
+    <a href="{% url 'Projects:asesoria_delete' object.pk %}" class="text-red-600 hover:underline">Eliminar</a>
+    <a href="{% url 'Projects:asesorias_list' %}" class="text-gray-600 hover:underline">Volver</a>
     {% if object.user == request.user %}
   
 {% endif %}
