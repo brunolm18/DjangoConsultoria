@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
@@ -11,6 +10,13 @@ urlpatterns = [
     path('blog/',include('blog.urls'))
      
 ] 
+
+# Configuración para servir archivos media
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+else:
+    # En producción, también servimos archivos media
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 
