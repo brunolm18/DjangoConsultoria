@@ -146,6 +146,7 @@ if not DEBUG:
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
     AWS_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+    AWS_DEFAULT_ACL = 'public-read'
 
     STORAGES = {
         "default": {
