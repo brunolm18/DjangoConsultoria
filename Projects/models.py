@@ -1,13 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
-from storages.backends.s3boto3 import S3Boto3Storage
 
 class Project(models.Model):
     name = models.CharField(max_length=100,verbose_name="Project Name")
-    image = models.ImageField(upload_to="projects_images/",verbose_name="Image",storage=S3Boto3Storage)
+    image = models.ImageField(upload_to="projects_images/",verbose_name="Image")
     description = models.CharField(max_length=500,verbose_name="Description",default="Hola")
     technologies = models.CharField(max_length=200,verbose_name="Technologies")
-    date = models.DateField(auto_created=True)
+    date = models.DateField(auto_now_add=True)
 
 
     def __str__(self):
