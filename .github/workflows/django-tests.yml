@@ -13,23 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:8
+      postgres:
+        image: postgres:14
         env:
-          MYSQL_ROOT_PASSWORD: rootpassword
-          MYSQL_DATABASE: djangoconsultoria
+          POSTGRES_DB: djangoconsultoria
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
         ports:
-          - 3306:3306
+          - 5432:5432
         options: >-
-          --health-cmd="mysqladmin ping --silent"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=3
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     env:
-      # Esta variable será usada en settings.py con dj_database_url
-      DATABASE_URL: mysql://root:rootpassword@127.0.0.1:3306/djangoconsultoria
-      DJANGO_SECRET_KEY: your_test_secret_key
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/djangoconsultoria
+      DJANGO_SECRET_KEY: testsecretkey
+      DEBUG: true
       AWS_ACCESS_KEY_ID: dummy
       AWS_SECRET_ACCESS_KEY: dummy
       AWS_STORAGE_BUCKET_NAME: dummy
@@ -47,7 +48,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install mysqlclient
+          pip install psycopg2-binary
 
-      - name: Run blog app tests
-        run: python manage.py test blog.tests
+      - name: Run tests
+        run: python manage.py test
