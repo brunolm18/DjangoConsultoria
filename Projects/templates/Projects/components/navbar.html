@@ -1,54 +1,48 @@
 {% block navbar %}
-<nav class="bg-green-900 text-white">
-  <div class="relative px-6 py-4">
 
-    <!-- Encabezado y menú hamburguesa -->
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <div class="text-2xl font-semibold hover:text-emerald-500">
-        <a href="{% url 'Projects:index' %}">Django Consultoria</a>
-      </div>
+<nav class="bg-green-900">
+  <div class="flex items-center justify-between px-6 py-4 text-white">
 
-      <!-- Toggle invisble (usa peer para mostrar menú) -->
-      <input id="menu-toggle" type="checkbox" class="hidden peer" />
-      <label for="menu-toggle" class="cursor-pointer md:hidden">
-        <!-- Ícono hamburguesa -->
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </label>
+    <div class="text-2xl font-semibold hover:text-emerald-500">
+      <a href="{% url 'Projects:index' %}">Django Consultoria</a>
     </div>
 
-    <!-- Menú para pantallas grandes -->
-    <ul class="hidden md:flex space-x-8 text-xl font-bold items-center mt-4 md:mt-0">
+    <ul class="flex space-x-8 text-xl font-bold items-center">
       <li class="flex items-center hover:text-emerald-500 space-x-2">
         <a href="{% url 'Projects:index' %}" class="flex items-center space-x-2">
           <span>Portafolio</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-5 h-5 fill-white">
+            <path d="M184 48l144 0c4.4 0 8 3.6 8 8l0 40L176 96l0-40c0-4.4 3.6-8 8-8zm-56 8l0 40L64 96C28.7 96 0 124.7 0 160l0 96 192 0 128 0 192 0 0-96c0-35.3-28.7-64-64-64l-64 0 0-40c0-30.9-25.1-56-56-56L184 0c-30.9 0-56 25.1-56 56zM512 288l-192 0 0 32c0 17.7-14.3 32-32 32l-64 0c-17.7 0-32-14.3-32-32l0-32L0 288 0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-128z"/>
+          </svg>
         </a>
       </li>
+
+
       <li class="hover:text-emerald-500">
         <a href="{% url 'blog:blog' %}">Blog</a>  
       </li>
+
       <li class="flex items-center hover:text-emerald-500 space-x-2">
         <a href="{% url 'Projects:login' %}" class="flex items-center space-x-2">
           <span>Login</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-white">
+            <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"/>
+          </svg>
         </a>
       </li>
+
       <li class="flex items-center hover:text-emerald-500 space-x-2">
         <a href="{% url 'Projects:register' %}" class="flex items-center space-x-2">
           <span>Register</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="w-4 h-4 fill-white">
+            <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304l91.4 0C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7L29.7 512C13.3 512 0 498.7 0 482.3zM504 312l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+          </svg>
         </a>
       </li>
     </ul>
 
-    <!-- Menú desplegable móvil -->
-    <ul class="peer-checked:flex hidden md:hidden flex-col mt-4 space-y-3 text-lg font-bold">
-      <li><a href="{% url 'Projects:index' %}" class="hover:text-emerald-400">Portafolio</a></li>
-      <li><a href="{% url 'blog:blog' %}" class="hover:text-emerald-400">Blog</a></li>
-      <li><a href="{% url 'Projects:login' %}" class="hover:text-emerald-400">Login</a></li>
-      <li><a href="{% url 'Projects:register' %}" class="hover:text-emerald-400">Register</a></li>
-    </ul>
-
+    <div class="w-10"></div>
   </div>
 </nav>
+
 {% endblock navbar %}
