@@ -11,11 +11,11 @@ urlpatterns = [
      
 ] 
 
-# Configuración para servir archivos media
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 else:
-    # En producción, también servimos archivos media
+   
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

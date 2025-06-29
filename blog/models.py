@@ -26,7 +26,7 @@ class Post(models.Model):
     description = models.TextField(verbose_name="Description")
     image = models.ImageField(upload_to="posts_images",verbose_name="Image")
     text = models.TextField(verbose_name="Text")
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_now_add=True)
         
 
     class Meta:
