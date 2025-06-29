@@ -28,7 +28,7 @@ jobs:
           --health-retries 5
 
     env:
-      DATABASE_URL: postgres://postgres:postgres@localhost:5432/djangoconsultoria
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/djangoconsultoria?sslmode=disable
       DJANGO_SECRET_KEY: testsecretkey
       DEBUG: true
       AWS_ACCESS_KEY_ID: dummy
