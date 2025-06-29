@@ -1,38 +1,54 @@
 {% block navbar %}
-<nav class="bg-green-900">
-  <div class="px-6 py-4 text-white">
-    <!-- Contenedor superior -->
+<nav class="bg-green-900 text-white">
+  <div class="relative px-6 py-4">
+
+    <!-- Encabezado y menú hamburguesa -->
     <div class="flex items-center justify-between">
+      <!-- Logo -->
       <div class="text-2xl font-semibold hover:text-emerald-500">
         <a href="{% url 'Projects:index' %}">Django Consultoria</a>
       </div>
 
-      <!-- Botón hamburguesa con checkbox oculto -->
-      <div class="md:hidden">
-        <input id="menu-toggle" type="checkbox" class="hidden peer" />
-        <label for="menu-toggle" class="cursor-pointer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white" viewBox="0 0 24 24">
-            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </label>
-      </div>
-
-      <!-- Menú en pantallas grandes -->
-      <ul class="hidden md:flex space-x-8 text-xl font-bold items-center">
-        <li><a href="{% url 'Projects:index' %}" class="hover:text-emerald-500">Portafolio</a></li>
-        <li><a href="{% url 'blog:blog' %}" class="hover:text-emerald-500">Blog</a></li>
-        <li><a href="{% url 'Projects:login' %}" class="hover:text-emerald-500">Login</a></li>
-        <li><a href="{% url 'Projects:register' %}" class="hover:text-emerald-500">Register</a></li>
-      </ul>
+      <!-- Toggle invisble (usa peer para mostrar menú) -->
+      <input id="menu-toggle" type="checkbox" class="hidden peer" />
+      <label for="menu-toggle" class="cursor-pointer md:hidden">
+        <!-- Ícono hamburguesa -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </label>
     </div>
 
-    <!-- Menú móvil con peer-checked -->
-    <ul class="mt-4 hidden flex-col space-y-3 text-lg font-bold peer-checked:flex md:hidden">
+    <!-- Menú para pantallas grandes -->
+    <ul class="hidden md:flex space-x-8 text-xl font-bold items-center mt-4 md:mt-0">
+      <li class="flex items-center hover:text-emerald-500 space-x-2">
+        <a href="{% url 'Projects:index' %}" class="flex items-center space-x-2">
+          <span>Portafolio</span>
+        </a>
+      </li>
+      <li class="hover:text-emerald-500">
+        <a href="{% url 'blog:blog' %}">Blog</a>  
+      </li>
+      <li class="flex items-center hover:text-emerald-500 space-x-2">
+        <a href="{% url 'Projects:login' %}" class="flex items-center space-x-2">
+          <span>Login</span>
+        </a>
+      </li>
+      <li class="flex items-center hover:text-emerald-500 space-x-2">
+        <a href="{% url 'Projects:register' %}" class="flex items-center space-x-2">
+          <span>Register</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Menú desplegable móvil -->
+    <ul class="peer-checked:flex hidden md:hidden flex-col mt-4 space-y-3 text-lg font-bold">
       <li><a href="{% url 'Projects:index' %}" class="hover:text-emerald-400">Portafolio</a></li>
       <li><a href="{% url 'blog:blog' %}" class="hover:text-emerald-400">Blog</a></li>
       <li><a href="{% url 'Projects:login' %}" class="hover:text-emerald-400">Login</a></li>
       <li><a href="{% url 'Projects:register' %}" class="hover:text-emerald-400">Register</a></li>
     </ul>
+
   </div>
 </nav>
 {% endblock navbar %}
